@@ -2811,7 +2811,7 @@ if(f)f.addEventListener('submit',async function(e){
   f.reset();f.style.display='none';$('regMsg').className='form-msg';$('regOk').style.display='block';window.scrollTo(0,0);
  }catch(err){
   if(err&&err.code==='23505')say(m,'err','This email address is already registered for the talk.');
-  else if(err&&(err.code==='42501'||/row-level security|permission denied/i.test(err.message||''))){say(m,'err','Registration could not be saved right now (database permission). Please email us at '+CONTACT+'.');if(window.console)console.error('Talk 2 registration error:',err)}
+  else if(err&&(err.code==='42501'||/row-level security|permission denied/i.test(err.message||''))){say(m,'err','Registration could not be saved right now (database permission). Please email us at '+CONTACT+'. [Technical: '+(err.code||'')+' '+(err.message||'')+']');if(window.console)console.error('Talk 2 registration error:',err)}
   else say(m,'err','Sorry, something went wrong. Please try again, or email us at '+CONTACT+'.');
  }
  b.disabled=false;
